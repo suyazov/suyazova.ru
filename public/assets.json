@@ -1,0 +1,32 @@
+{
+  "assets": [
+    {
+      "id": "anna-white-laptop",
+      "file": "/anna-white-laptop.jpg",
+      "type": "image",
+      "description": "Анна в белом наряде с ноутбуком, профессиональная атмосфера. Hero — правая колонка.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "anna-red-dress",
+      "file": "/anna-red-dress.jpg",
+      "type": "image",
+      "description": "Анна в красном платье с ноутбуком, текст 'Пожарная безопасность в детском саду/центре'. Team — правая колонка.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "anna-fireplace",
+      "file": "/anna-fireplace.jpg",
+      "type": "image",
+      "description": "Анна в белой блузке у камина, тёплая атмосфера. About — фото.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "testimonial-screenshot",
+      "file": "/testimonial-screenshot.jpg",
+      "type": "image",
+      "description": "Скриншот сообщения от клиентки, которая хочет на консультацию. Testimonials — основная карточка.",
+      "mimeType": "image/jpeg"
+    }
+  ]
+}

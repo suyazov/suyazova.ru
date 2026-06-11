@@ -42,9 +42,10 @@ export function Navigation() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-base font-bold text-[#172033] hover:text-[#e73c47] transition-colors duration-200"
+            className="flex items-center gap-2 text-base font-bold text-[#172033] hover:text-[#e73c47] transition-colors duration-200"
           >
-            Анна Суязова
+            <img src="/logo.png" alt="Анна Суязова" className="w-8 h-8 rounded-full object-cover" />
+            <span>Анна Суязова</span>
           </a>
 
           {/* Desktop nav */}

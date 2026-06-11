@@ -53,15 +53,17 @@ export function Services() {
           />
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children auto-rows-fr">
           {services.map((service, index) => (
-            <div key={index} className="scroll-reveal">
-              <ServiceCard
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                features={service.features}
-              />
+            <div key={index} className="scroll-reveal h-full">
+              <div className="h-full">
+                <ServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  features={service.features}
+                />
+              </div>
             </div>
           ))}
         </div>

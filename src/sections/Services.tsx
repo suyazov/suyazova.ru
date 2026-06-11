@@ -1,4 +1,4 @@
-import { MessageSquare, Database, Calculator, Home, TrendingUp, Users } from 'lucide-react';
+import { MessageSquare, Database, Calculator, Home, TrendingUp, Users, Tent } from 'lucide-react';
 import { SectionHeader } from '@/components/SectionHeader';
 import { ServiceCard } from '@/components/ServiceCard';
 
@@ -38,6 +38,12 @@ const services = [
     title: 'Командная поддержка',
     description: 'Доступ к команде специалистов: маркетолог, юрист, методист, дизайнер.',
     features: ['Маркетолог', 'Юрист', 'Методист', 'Дизайнер'],
+  },
+  {
+    icon: Tent,
+    title: 'Запуск летнего лагеря',
+    description: 'Готовый пакет для запуска лагеря: программа, финансы, документы, привлечение.',
+    features: ['Пошаговая инструкция', 'Финансовая модель', 'Все документы', 'Структура программы'],
   },
 ];
 

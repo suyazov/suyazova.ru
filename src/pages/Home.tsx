@@ -1,6 +1,7 @@
 import { Navigation } from '@/sections/Navigation';
 import { Hero } from '@/sections/Hero';
 import { Services } from '@/sections/Services';
+import { AdminPackage } from '@/sections/AdminPackage';
 import { Team } from '@/sections/Team';
 import { About } from '@/sections/About';
 import { Testimonials } from '@/sections/Testimonials';
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <AdminPackage />
         <Team />
         <About />
         <Testimonials />

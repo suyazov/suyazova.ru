@@ -76,6 +76,69 @@
       "type": "image",
       "description": "Призыв написать в директ, чтобы узнать больше о пакете документов для администратора.",
       "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-1",
+      "file": "/otziv-klienta-1.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: первая консультация, страх проверок и вопросы по документам для детского сада.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-2",
+      "file": "/otziv-klienta-2.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: впервые за полгода спокойно сплю, все разложили по полочкам.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-3",
+      "file": "/otziv-klienta-3.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: думала знаю как открывать сад, теперь поняла, что ничего не знала.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-4",
+      "file": "/otziv-klienta-4.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: благодарность за консультацию, таблицу конкурентного анализа и поиск помещения.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-5",
+      "file": "/otziv-klienta-5.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: оформляем журналы, переходим в формат частного сада, консультация — глоток воздуха.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-6",
+      "file": "/otziv-klienta-6.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: все разложили по полочкам, дали конкретные инструменты, стало спокойнее.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-7",
+      "file": "/otziv-klienta-7.jpg",
+      "type": "image",
+      "description": "Отзыв клиента из детского центра: нужен пакет Администрирование, как приобрести.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-8",
+      "file": "/otziv-klienta-8.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: 2 года вынашивала идею открыть детский сад, после разговора все сложилось в голове.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "otziv-klienta-9",
+      "file": "/otziv-klienta-9.jpg",
+      "type": "image",
+      "description": "Отзыв клиента: вдохновили, появились крылья, клиенты заметили изменения, хочу купить пакет документов.",
+      "mimeType": "image/jpeg"
     }
   ]
 }

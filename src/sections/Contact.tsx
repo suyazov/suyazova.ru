@@ -6,6 +6,8 @@ import { toast } from 'sonner';
 import IMask from 'imask';
 import { ruCities } from '@/data/russianCities';
 
+type Mask = ReturnType<typeof IMask>;
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,7 +20,7 @@ export function Contact() {
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [filteredCities, setFilteredCities] = useState<string[]>([]);
   const phoneRef = useRef<HTMLInputElement>(null);
-  const maskRef = useRef<IMask.InputMask<any> | null>(null);
+  const maskRef = useRef<Mask | null>(null);
 
   useEffect(() => {
     if (phoneRef.current) {
@@ -55,7 +57,7 @@ export function Contact() {
       if (result === 'success') {
         toast.success('Заявка отправлена! Я свяжусь с вами в ближайшее время.');
         setFormData({ name: '', phone: '', city: '', interest: '', message: '' });
-        maskRef.current?.value = '+7 (___) ___-__-__';
+        if (maskRef.current) maskRef.current.value = '+7 (___) ___-__-__';
       } else if (result === 'rate_limited') {
         toast.error('Слишком много запросов. Попробуйте позже.');
       } else {

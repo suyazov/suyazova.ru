@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, Phone, ExternalLink } from 'lucide-react';
 import { SectionHeader } from '@/components/SectionHeader';
 import { ContactLink } from '@/components/ContactLink';
-import { toast } from 'sonner';
 import IMask from 'imask';
 import { ruCities } from '@/data/russianCities';
 
@@ -60,12 +59,12 @@ export function Contact() {
         setFormData({ name: '', phone: '', city: '', interest: '', message: '' });
         if (maskRef.current) maskRef.current.value = '+7 (___) ___-__-__';
       } else if (result === 'rate_limited') {
-        toast.error('Слишком много запросов. Попробуйте позже.');
+        alert('Слишком много запросов. Попробуйте позже.');
       } else {
-        toast.error('Ошибка отправки. Попробуйте ещё раз.');
+        alert('Ошибка отправки. Попробуйте ещё раз.');
       }
     } catch {
-      toast.error('Ошибка соединения. Попробуйте позже.');
+      alert('Ошибка соединения. Попробуйте позже.');
     } finally {
       setIsSubmitting(false);
     }
@@ -95,7 +94,7 @@ export function Contact() {
     return (
       <section id="contact" className="bg-[#0d1b3e] py-[clamp(60px,8vw,120px)]">
         <div className="max-w-[1200px] mx-auto px-5">
-          <div className="text-center scroll-reveal">
+          <div className="text-center revealed">
             <SectionHeader
               label="СПАСИБО!"
               title="Заявка отправлена"
@@ -120,27 +119,8 @@ export function Contact() {
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200"
               >
                 <ExternalLink className="w-5 h-5" />
-                Мой мир
+                Я в Максе
               </a>
-            </div>
-
-            <div className="mt-12 max-w-2xl mx-auto">
-              <h3 className="text-xl font-semibold text-white mb-4">Пакет документов для администратора детского сада</h3>
-              <p className="text-white/70 mb-4">
-                На консультации я практически всегда задаю вопрос: как у вас выстроена работа администратора?
-                Потому что именно администратор — это ведущая шестерёнка в механизме детского сада. Пока нет порядка в его работе, его не будет нигде.
-              </p>
-              <p className="text-white/80 mb-4">
-                В пакет входит:
-                — должностная инструкция администратора<br />
-                — чек-листы работы (все функции распределены по дням)<br />
-                — скрипты продаж (звонки, экскурсии, возражения, возврат клиентов)<br />
-                — договоры и документы для работы с родителями<br />
-                — документ по привлечению и удержанию клиентов
-              </p>
-              <p className="text-white/60 text-sm">
-                Все документы составлены юристами и адаптированы под реальную работу. К пакету идёт консультация со мной.
-              </p>
             </div>
           </div>
         </div>
@@ -164,6 +144,32 @@ export function Contact() {
             <div className="mt-10 space-y-6">
               <ContactLink href="https://t.me/anna_suyazova" icon={Send} label="Telegram" value="@anna_suyazova" />
               <ContactLink href="https://wa.me/79614691333" icon={Phone} label="WhatsApp" value="+7 (961) 469-13-33" />
+            </div>
+
+            <div className="mt-8 p-6 bg-white/5 rounded-xl border border-white/10">
+              <p className="text-sm text-white/80 mb-4">
+                Подпишитесь на мои каналы — там я делюсь инсайтами по управлению детскими садами:
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://t.me/suyazovaa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#e73c47] hover:bg-[#c42835] text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+                >
+                  <Send className="w-4 h-4" />
+                  Канал @suyazovaa
+                </a>
+                <a
+                  href="https://max.ru/join/ztz-wH7eN8noF7sbsNFmW9qSG_lJuh2i0rYbAVlksKg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Я в Максе
+                </a>
+              </div>
             </div>
           </div>
 

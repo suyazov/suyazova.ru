@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Phone } from 'lucide-react';
+import { Send, Phone, ExternalLink } from 'lucide-react';
 import { SectionHeader } from '@/components/SectionHeader';
 import { ContactLink } from '@/components/ContactLink';
 import { toast } from 'sonner';
@@ -17,6 +17,7 @@ export function Contact() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [filteredCities, setFilteredCities] = useState<string[]>([]);
   const phoneRef = useRef<HTMLInputElement>(null);
@@ -55,7 +56,7 @@ export function Contact() {
       const result = await response.text();
 
       if (result === 'success') {
-        toast.success('Заявка отправлена! Я свяжусь с вами в ближайшее время.');
+        setIsSubmitted(true);
         setFormData({ name: '', phone: '', city: '', interest: '', message: '' });
         if (maskRef.current) maskRef.current.value = '+7 (___) ___-__-__';
       } else if (result === 'rate_limited') {
@@ -89,6 +90,63 @@ export function Contact() {
     setFilteredCities([]);
     setShowCityDropdown(false);
   };
+
+  if (isSubmitted) {
+    return (
+      <section id="contact" className="bg-[#0d1b3e] py-[clamp(60px,8vw,120px)]">
+        <div className="max-w-[1200px] mx-auto px-5">
+          <div className="text-center scroll-reveal">
+            <SectionHeader
+              label="СПАСИБО!"
+              title="Заявка отправлена"
+              subtitle="Я свяжусь с вами в ближайшее время. А пока — подпишитесь на мои каналы"
+              light
+            />
+
+            <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://t.me/suyazovaa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#e73c47] hover:bg-[#c42835] text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200"
+              >
+                <Send className="w-5 h-5" />
+                Канал @suyazovaa
+              </a>
+              <a
+                href="https://max.ru/join/ztz-wH7eN8noF7sbsNFmW9qSG_lJuh2i0rYbAVlksKg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Мой мир
+              </a>
+            </div>
+
+            <div className="mt-12 max-w-2xl mx-auto">
+              <h3 className="text-xl font-semibold text-white mb-4">Пакет документов для администратора детского сада</h3>
+              <p className="text-white/70 mb-4">
+                На консультации я практически всегда задаю вопрос: как у вас выстроена работа администратора?
+                Потому что именно администратор — это ведущая шестерёнка в механизме детского сада. Пока нет порядка в его работе, его не будет нигде.
+              </p>
+              <p className="text-white/80 mb-4">
+                В пакет входит:
+                — должностная инструкция администратора<br />
+                — чек-листы работы (все функции распределены по дням)<br />
+                — скрипты продаж (звонки, экскурсии, возражения, возврат клиентов)<br />
+                — договоры и документы для работы с родителями<br />
+                — документ по привлечению и удержанию клиентов
+              </p>
+              <p className="text-white/60 text-sm">
+                Все документы составлены юристами и адаптированы под реальную работу. К пакету идёт консультация со мной.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="contact" className="bg-[#0d1b3e] py-[clamp(60px,8vw,120px)]">

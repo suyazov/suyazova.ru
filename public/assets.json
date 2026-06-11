@@ -27,6 +27,55 @@
       "type": "image",
       "description": "Скриншот сообщения от клиентки, которая хочет на консультацию. Testimonials — основная карточка.",
       "mimeType": "image/jpeg"
+    },
+    {
+      "id": "skripty-prodazh-dlya-administratora-detskogo-sada",
+      "file": "/skripty-prodazh-dlya-administratora-detskogo-sada.jpg",
+      "type": "image",
+      "description": "Главная карточка галереи: 3 ошибки администратора, из-за которых теряются клиенты.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "oshibka-nevernye-zayavki-administratora",
+      "file": "/oshibka-nevernye-zayavki-administratora.jpg",
+      "type": "image",
+      "description": "Ошибка №1: неверно обрабатываются входящие заявки, родитель уходит туда, где ответили быстрее.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "oshibka-plokhoe-znanie-produkta",
+      "file": "/oshibka-plokhoe-znanie-produkta.jpg",
+      "type": "image",
+      "description": "Ошибка №2: администратор отвечает интуитивно и плохо знает продукт, родитель сомневается.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "oshibka-net-raboty-s-vozrazheniyami",
+      "file": "/oshibka-net-raboty-s-vozrazheniyami.jpg",
+      "type": "image",
+      "description": "Ошибка №3: нет работы с возражениями 'дорого', 'подумаем', 'сравню с другими'.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "instrument-gotovye-skripty-prodazh",
+      "file": "/instrument-gotovye-skripty-prodazh.jpg",
+      "type": "image",
+      "description": "Инструмент: готовые скрипты продаж помогают уверенно отвечать, вести к записи, закрывать возражения.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "sostav-paketa-dokumentov-administratora",
+      "file": "/sostav-paketa-dokumentov-administratora.jpg",
+      "type": "image",
+      "description": "Список документов пакета: скрипты продаж, работа с возражениями, исходящие и входящие звонки, экскурсия, возврат клиента.",
+      "mimeType": "image/jpeg"
+    },
+    {
+      "id": "paket-dokumentov-dlya-administratora-zakazat",
+      "file": "/paket-dokumentov-dlya-administratora-zakazat.jpg",
+      "type": "image",
+      "description": "Призыв написать в директ, чтобы узнать больше о пакете документов для администратора.",
+      "mimeType": "image/jpeg"
     }
   ]
 }

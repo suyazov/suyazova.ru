@@ -2,12 +2,13 @@ import { SectionHeader } from '@/components/SectionHeader';
 import { Send } from 'lucide-react';
 
 const galleryItems = [
-  { label: 'Должностная инструкция администратора', image: '/admin-doc-1.jpg' },
-  { label: 'Чек-листы работы по дням', image: '/admin-doc-2.jpg' },
-  { label: 'Скрипты продаж', image: '/admin-doc-3.jpg' },
-  { label: 'Документы для родителей', image: '/admin-doc-4.jpg' },
-  { label: 'Финансовая модель', image: '/admin-doc-5.jpg' },
-  { label: 'Привлечение клиентов', image: '/admin-doc-6.jpg' },
+  { label: 'Главная: 3 ошибки администратора', image: '/skripty-prodazh-dlya-administratora-detskogo-sada.jpg' },
+  { label: 'Ошибка №1: неверно обрабатываются заявки', image: '/oshibka-nevernye-zayavki-administratora.jpg' },
+  { label: 'Ошибка №2: админ плохо знает продукт', image: '/oshibka-plokhoe-znanie-produkta.jpg' },
+  { label: 'Ошибка №3: нет работы с возражениями', image: '/oshibka-net-raboty-s-vozrazheniyami.jpg' },
+  { label: 'Инструмент — готовые скрипты продаж', image: '/instrument-gotovye-skripty-prodazh.jpg' },
+  { label: 'Что входит в пакет документов', image: '/sostav-paketa-dokumentov-administratora.jpg' },
+  { label: 'Заказать пакет документов', image: '/paket-dokumentov-dlya-administratora-zakazat.jpg' },
 ];
 
 export function AdminPackage() {
@@ -26,22 +27,23 @@ export function AdminPackage() {
           <p className="text-center text-lg text-[#60708c] mb-8">
             Скрипты продаж для администратора детского сада/центра — это готовые сценарии общения с родителями: ответы на вопросы о цене, запись на экскурсию, работа с возражениями и возврат клиента.
           </p>
+          <p className="text-center text-lg text-[#60708c]">
+            Я собрала пакет всех документов, необходимых для системной и эффективной работы администратора.
+            Каждый из них действует в моем детском саду. В карусели расписала, что входит в пакет.
+          </p>
         </div>
 
         <div className="mt-10 relative">
-          <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
+          <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide snap-x snap-mandatory">
             {galleryItems.map((item, index) => (
-              <div key={index} className="flex-shrink-0 w-64 scroll-reveal">
-                <div className="bg-white border border-[#e8e0d8] rounded-2xl overflow-hidden">
+              <div key={index} className="flex-shrink-0 w-[340px] snap-start scroll-reveal">
+                <div className="rounded-2xl overflow-hidden shadow-lg">
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="w-full h-48 object-cover"
+                    className="w-full aspect-[4/5] object-cover"
                     loading="lazy"
                   />
-                  <div className="p-4">
-                    <p className="text-sm font-medium text-[#172033] text-center">{item.label}</p>
-                  </div>
                 </div>
               </div>
             ))}

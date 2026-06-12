@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import { SectionHeader } from '@/components/SectionHeader';
-import { Send, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useRef, useState, useEffect } from 'react';
+import { Send, ZoomIn } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 const galleryItems = [
   { label: 'Главная: 3 ошибки администратора', image: '/skripty-prodazh-dlya-administratora-detskogo-sada.jpg' },
@@ -13,32 +18,8 @@ const galleryItems = [
 ];
 
 export function AdminPackage() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [current, setCurrent] = useState(0);
-  const total = galleryItems.length;
-
-  const scrollToIndex = (index: number) => {
-    const clamped = Math.max(0, Math.min(index, total - 1));
-    setCurrent(clamped);
-    const track = trackRef.current;
-    if (!track) return;
-    const slide = track.children[clamped] as HTMLElement | undefined;
-    if (!slide) return;
-    track.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const handleScroll = () => {
-      const slideWidth = track.children[0]?.clientWidth || 1;
-      const gap = 16;
-      const index = Math.round(track.scrollLeft / (slideWidth + gap));
-      setCurrent(Math.max(0, Math.min(index, total - 1)));
-    };
-    track.addEventListener('scroll', handleScroll, { passive: true });
-    return () => track.removeEventListener('scroll', handleScroll);
-  }, [total]);
+  const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section id="admin-package" className="bg-[#fffaf7] py-[clamp(60px,8vw,120px)]">
@@ -51,68 +32,45 @@ export function AdminPackage() {
           />
         </div>
 
-        <div className="mt-12 max-w-3xl mx-auto">
-          <p className="text-center text-lg text-[#60708c] mb-8">
-            Скрипты продаж для администратора детского сада/центра — это готовые сценарии общения с родителями: ответы на вопросы о цене, запись на экскурсию, работа с возражениями и возврат клиента.
-          </p>
+        <div className="mt-10 max-w-3xl mx-auto">
           <p className="text-center text-lg text-[#60708c]">
-            Я собрала пакет всех документов, необходимых для системной и эффективной работы администратора.
-            Каждый из них действует в моем детском саду. В карусели расписала, что входит в пакет.
+            Скрипты продаж для администратора детского сада/центра — это готовые сценарии общения с родителями: ответы на вопросы о цене, запись на экскурсию, работа с возражениями и возврат клиента. Я собрала пакет всех документов, необходимых для системной и эффективной работы администратора. Каждый из них действует в моём детском саду.
           </p>
         </div>
 
-        <div className="mt-10 relative">
-          <button
-            type="button"
-            onClick={() => scrollToIndex(current - 1)}
-            disabled={current === 0}
-            aria-label="Назад"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-10 w-12 h-12 rounded-full bg-[#e73c47] text-white flex items-center justify-center shadow-lg hover:bg-[#c42835] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          <div
-            ref={trackRef}
-            className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide snap-x snap-mandatory mx-10"
-          >
-            {galleryItems.map((item, index) => (
-              <div key={index} className="flex-shrink-0 w-[340px] snap-start scroll-reveal">
-                <div className="rounded-2xl overflow-hidden shadow-lg">
+        <div className="mt-12 flex flex-wrap justify-center gap-5 stagger-children">
+          {galleryItems.map((item, index) => (
+            <div
+              key={index}
+              className="scroll-reveal w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)]"
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveIndex(index);
+                  setOpen(true);
+                }}
+                className="group w-full text-left rounded-2xl overflow-hidden bg-white border border-[#e8e0d8] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-[#e73c47] focus:ring-offset-2"
+              >
+                <div className="relative overflow-hidden aspect-[3/4]">
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="w-full aspect-[4/5] object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
+                      <ZoomIn className="w-6 h-6 text-[#e73c47]" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            type="button"
-            onClick={() => scrollToIndex(current + 1)}
-            disabled={current === total - 1}
-            aria-label="Вперёд"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-10 w-12 h-12 rounded-full bg-[#e73c47] text-white flex items-center justify-center shadow-lg hover:bg-[#c42835] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          <div className="flex justify-center gap-2 mt-6">
-            {galleryItems.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => scrollToIndex(index)}
-                aria-label={`Слайд ${index + 1}`}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === current ? 'bg-[#e73c47] scale-125' : 'bg-[#e8e0d8] hover:bg-[#d4ccc4]'
-                }`}
-              />
-            ))}
-          </div>
+                <div className="p-4">
+                  <p className="text-sm font-medium text-[#172033] leading-snug">{item.label}</p>
+                </div>
+              </button>
+            </div>
+          ))}
         </div>
 
         <div className="mt-10 text-center">
@@ -126,6 +84,19 @@ export function AdminPackage() {
             Написать для покупки пакета
           </a>
         </div>
+
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogContent className="max-w-2xl p-2 sm:p-4 bg-white border-none">
+            <DialogTitle className="sr-only">
+              {galleryItems[activeIndex]?.label}
+            </DialogTitle>
+            <img
+              src={galleryItems[activeIndex]?.image}
+              alt={galleryItems[activeIndex]?.label}
+              className="w-full h-auto rounded-lg"
+            />
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );

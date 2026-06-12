@@ -174,7 +174,7 @@ export function Services() {
                     e.preventDefault();
                     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="inline-flex items-center justify-center gap-2 bg-[#e73c47] hover:bg-[#c42835] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+                  className="inline-flex items-center justify-center gap-2 bg-[#e73c47] hover:bg-[#c42835] text-white font-semibold px-8 py-4 rounded-full transition-colors duration-200 text-center"
                 >
                   Записаться на консультацию
                 </a>
@@ -182,7 +182,7 @@ export function Services() {
                   href="https://t.me/anna_suyazova"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 border-[1.5px] border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+                  className="inline-flex items-center justify-center gap-2 border-[1.5px] border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full transition-colors duration-200 text-center"
                 >
                   Написать в Telegram
                 </a>

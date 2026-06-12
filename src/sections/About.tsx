@@ -87,7 +87,7 @@ export function About() {
               {awards.map((award, index) => (
                 <div
                   key={index}
-                  className="scroll-reveal flex items-center gap-3 bg-[#fef2f2] rounded-xl px-5 py-4 h-full"
+                  className="scroll-reveal flex items-center gap-3 bg-[#fef2f2] rounded-xl px-5 py-4"
                 >
                   <Award className="w-5 h-5 text-[#e73c47] flex-shrink-0" />
                   <div>

@@ -2,14 +2,14 @@ import { CheckCircle2, Award, Building2 } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-[72px] overflow-hidden bg-[#fffaf7]">
+    <section className="relative min-h-0 md:min-h-[90vh] flex items-start md:items-center pt-[72px] overflow-hidden bg-[#fffaf7]">
       {/* Background decoration */}
       <div
         className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none animate-hero-bg-scale"
         style={{ background: 'radial-gradient(ellipse at center, rgba(231, 60, 71, 0.06) 0%, transparent 70%)' }}
       />
 
-      <div className="w-full max-w-[1200px] mx-auto px-5 py-16 md:py-24">
+      <div className="w-full max-w-[1200px] mx-auto px-5 py-10 md:py-24">
         <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
           {/* Left column - content */}
           <div className="flex-1 md:max-w-[55%]">

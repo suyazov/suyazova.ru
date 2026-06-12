@@ -18,7 +18,7 @@ const features = [
   'Возврат «замороженного» клиента',
 ];
 
-function PhoneStory() {
+function StoryGallery() {
   const [current, setCurrent] = useState(0);
   const total = galleryItems.length;
 
@@ -33,118 +33,87 @@ function PhoneStory() {
   // Auto-play with pause on hover
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
-    const phone = document.getElementById('phone-story');
+    const gallery = document.getElementById('story-gallery');
     const start = () => {
       interval = setInterval(next, 4000);
     };
     const stop = () => clearInterval(interval);
 
     start();
-    phone?.addEventListener('mouseenter', stop);
-    phone?.addEventListener('mouseleave', start);
+    gallery?.addEventListener('mouseenter', stop);
+    gallery?.addEventListener('mouseleave', start);
     return () => {
       stop();
-      phone?.removeEventListener('mouseenter', stop);
-      phone?.removeEventListener('mouseleave', start);
+      gallery?.removeEventListener('mouseenter', stop);
+      gallery?.removeEventListener('mouseleave', start);
     };
   }, [next]);
 
   return (
-    <div id="phone-story" className="relative w-full max-w-[340px] mx-auto lg:mx-0">
-      {/* Phone frame */}
-      <div className="bg-[#1a1a1a] rounded-[36px] p-2 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.35)]">
-        {/* Screen */}
-        <div className="relative bg-black rounded-[28px] overflow-hidden aspect-[9/16]">
-          {/* Story image */}
+    <div id="story-gallery" className="relative w-full max-w-[520px] mx-auto lg:mx-0">
+      {/* Main image */}
+      <div className="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] aspect-[9/16] bg-[#1a1a1a]">
+        {galleryItems.map((item, index) => (
           <img
-            src={galleryItems[current].image}
-            alt={galleryItems[current].label}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+            key={index}
+            src={item.image}
+            alt={item.label}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              index === current ? 'opacity-100' : 'opacity-0'
+            }`}
           />
+        ))}
 
-          {/* Gradient overlays */}
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-
-          {/* Top bar */}
-          <div className="absolute top-0 left-0 right-0 z-20 px-3 pt-3 pb-2">
-            {/* Progress segments */}
-            <div className="flex gap-1 mb-3">
-              {galleryItems.map((_, index) => (
-                <div key={index} className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-white transition-all duration-300"
-                    style={{
-                      width:
-                        index < current
-                          ? '100%'
-                          : index === current
-                          ? '100%'
-                          : '0%',
-                      opacity: index <= current ? 1 : 0.4,
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* User info */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/30 bg-[#e73c47]">
-                  <img src="/anna-fireplace.jpg" alt="Анна" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <p className="text-white text-sm font-semibold leading-tight">anna_suyazova</p>
-                  <p className="text-white/70 text-xs">Скрипты продаж</p>
-                </div>
+        {/* Top progress */}
+        <div className="absolute top-0 left-0 right-0 z-10 px-4 pt-4">
+          <div className="flex gap-1.5">
+            {galleryItems.map((_, index) => (
+              <div key={index} className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-white transition-all duration-300"
+                  style={{
+                    width: index <= current ? '100%' : '0%',
+                    opacity: index <= current ? 1 : 0.4,
+                  }}
+                />
               </div>
-              <span className="text-white/80 text-xs">{current + 1}/{total}</span>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Navigation tap zones */}
-          <button
-            type="button"
-            onClick={prev}
-            aria-label="Назад"
-            className="absolute left-0 top-0 bottom-0 w-1/4 z-10 flex items-center justify-start pl-2 group"
-          >
-            <ChevronLeft className="w-7 h-7 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" />
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            aria-label="Вперёд"
-            className="absolute right-0 top-0 bottom-0 w-1/4 z-10 flex items-center justify-end pr-2 group"
-          >
-            <ChevronRight className="w-7 h-7 text-white/80 opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" />
-          </button>
+        {/* Navigation arrows */}
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Назад"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 text-[#172033] flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Вперёд"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 text-[#172033] flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
 
-          {/* Bottom send button */}
-          <div className="absolute bottom-0 left-0 right-0 z-20 px-3 pb-4">
-            <a
-              href="https://t.me/anna_suyazova"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm font-semibold py-2.5 rounded-full border border-white/30 transition-colors"
-            >
-              <Send className="w-4 h-4" />
-              Отправить сообщение
-            </a>
-          </div>
+        {/* Counter */}
+        <div className="absolute top-4 right-4 z-10 text-white text-xs font-medium bg-black/30 px-2 py-1 rounded-full">
+          {current + 1}/{total}
         </div>
       </div>
 
       {/* Pagination dots */}
-      <div className="flex justify-center gap-1.5 mt-4">
+      <div className="flex justify-center gap-2 mt-5">
         {galleryItems.map((_, index) => (
           <button
             key={index}
             type="button"
             onClick={() => setCurrent(index)}
             aria-label={`Слайд ${index + 1}`}
-            className={`w-2 h-2 rounded-full transition-all ${
+            className={`w-2.5 h-2.5 rounded-full transition-all ${
               index === current ? 'bg-[#e73c47] scale-125' : 'bg-[#d4ccc4] hover:bg-[#b8b0a8]'
             }`}
           />
@@ -159,9 +128,9 @@ export function AdminPackage() {
     <section id="admin-package" className="bg-[#fffaf7] py-[clamp(60px,8vw,120px)] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left column — phone */}
+          {/* Left column — story gallery */}
           <div className="scroll-reveal-scale flex justify-center lg:justify-start">
-            <PhoneStory />
+            <StoryGallery />
           </div>
 
           {/* Right column — text */}

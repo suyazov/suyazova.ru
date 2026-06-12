@@ -54,7 +54,7 @@ function PhoneStory() {
       {/* Phone frame */}
       <div className="bg-[#1a1a1a] rounded-[36px] p-2 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.35)]">
         {/* Screen */}
-        <div className="relative bg-black rounded-[28px] overflow-hidden aspect-[9/18]">
+        <div className="relative bg-black rounded-[28px] overflow-hidden aspect-[9/16]">
           {/* Story image */}
           <img
             src={galleryItems[current].image}

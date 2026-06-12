@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Send, ChevronLeft, ChevronRight, Check } from 'lucide-react';
+import { webpUrl } from '@/lib/webpUrl';
 
 const galleryItems = [
   { label: 'Главная: 3 ошибки администратора', image: '/skripty-prodazh-dlya-administratora-detskogo-sada.jpg' },
@@ -54,15 +55,17 @@ function StoryGallery() {
       {/* Main image */}
       <div className="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] aspect-[4/5] bg-[#1a1a1a]">
         {galleryItems.map((item, index) => (
-          <img
-            key={index}
-            src={item.image}
-            alt={item.label}
-            loading="lazy"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-              index === current ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
+          <picture key={index}>
+            <source srcSet={webpUrl(item.image)} type="image/webp" />
+            <img
+              src={item.image}
+              alt={item.label}
+              loading="lazy"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                index === current ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          </picture>
         ))}
 
         {/* Top progress */}

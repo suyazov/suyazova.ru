@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { webpUrl } from '@/lib/webpUrl';
 
 interface TestimonialCardProps {
   quote: string;
@@ -18,11 +19,14 @@ export function TestimonialCard({ quote, author, role, screenshot, featured = fa
       )}>
         {screenshot && (
           <div className="mb-6 rounded-xl overflow-hidden border border-[#e8e0d8]">
-            <img
-              src={screenshot}
-              alt={`Сообщение от ${author}`}
-              className="w-full h-auto object-contain"
-            />
+            <picture>
+              <source srcSet={webpUrl(screenshot)} type="image/webp" />
+              <img
+                src={screenshot}
+                alt={`Сообщение от ${author}`}
+                className="w-full h-auto object-contain"
+              />
+            </picture>
           </div>
         )}
         <blockquote className="text-[#60708c] italic leading-relaxed mb-5">

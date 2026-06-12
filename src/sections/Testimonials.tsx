@@ -6,6 +6,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { webpUrl } from '@/lib/webpUrl';
 
 const testimonialScreenshots = [
   { src: '/otziv-klienta-1.jpg', alt: 'Отзыв клиента: первая консультация и страх проверок' },
@@ -94,12 +95,15 @@ export function Testimonials() {
                     className="group w-full text-left rounded-2xl overflow-hidden bg-white border border-[#e8e0d8] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-[#e73c47] focus:ring-offset-2"
                   >
                     <div className="relative overflow-hidden aspect-[3/4]">
-                      <img
-                        src={item.src}
-                        alt={item.alt}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                        loading="lazy"
-                      />
+                      <picture>
+                        <source srcSet={webpUrl(item.src)} type="image/webp" />
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                          loading="lazy"
+                        />
+                      </picture>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                     </div>
                   </button>
@@ -138,11 +142,14 @@ export function Testimonials() {
             <DialogTitle className="sr-only">
               {testimonialScreenshots[activeIndex]?.alt}
             </DialogTitle>
-            <img
-              src={testimonialScreenshots[activeIndex]?.src}
-              alt={testimonialScreenshots[activeIndex]?.alt}
-              className="w-full h-auto rounded-lg"
-            />
+            <picture>
+              <source srcSet={webpUrl(testimonialScreenshots[activeIndex]?.src)} type="image/webp" />
+              <img
+                src={testimonialScreenshots[activeIndex]?.src}
+                alt={testimonialScreenshots[activeIndex]?.alt}
+                className="w-full h-auto rounded-lg"
+              />
+            </picture>
           </DialogContent>
         </Dialog>
       </div>

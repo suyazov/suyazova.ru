@@ -1,4 +1,5 @@
 import { SectionHeader } from '@/components/SectionHeader';
+import { webpUrl } from '@/lib/webpUrl';
 import { Award, Calendar, Users, MessageSquare } from 'lucide-react';
 
 const awards = [
@@ -37,14 +38,17 @@ export function About() {
                 style={{ background: 'rgba(231, 60, 71, 0.07)' }}
               />
               <div className="relative w-full h-full rounded-[28px] overflow-hidden shadow-card">
-                <img
-                  src="/anna-fireplace.jpg"
-                  alt="Анна Суязова"
-                  className="w-full h-full object-cover"
-                  width="853"
-                  height="1280"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcSet={webpUrl('/anna-fireplace.jpg')} type="image/webp" />
+                  <img
+                    src="/anna-fireplace.jpg"
+                    alt="Анна Суязова"
+                    className="w-full h-full object-cover"
+                    width="853"
+                    height="1280"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
             </div>
           </div>

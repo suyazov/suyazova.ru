@@ -1,5 +1,6 @@
 import { TrendingUp, FileText, BookOpen, Palette } from 'lucide-react';
 import { SectionHeader } from '@/components/SectionHeader';
+import { webpUrl } from '@/lib/webpUrl';
 
 const specialists = [
   {
@@ -57,14 +58,17 @@ export function Team() {
           {/* Right column - photo with stats */}
           <div className="flex-1 scroll-reveal-right relative">
             <div className="relative rounded-2xl overflow-hidden">
-              <img
-                src="/anna-red-dress.jpg"
-                alt="Анна Суязова"
-                className="w-full h-auto object-cover"
-                width="852"
-                height="1280"
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={webpUrl('/anna-red-dress.jpg')} type="image/webp" />
+                <img
+                  src="/anna-red-dress.jpg"
+                  alt="Анна Суязова"
+                  className="w-full h-auto object-cover"
+                  width="852"
+                  height="1280"
+                  loading="lazy"
+                />
+              </picture>
 
               {/* Stats overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-6">

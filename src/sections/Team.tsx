@@ -47,7 +47,7 @@ export function Team() {
                     <spec.icon className="w-5 h-5 text-[#e73c47]" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">{spec.title}</h4>
+                    <h3 className="text-white font-semibold">{spec.title}</h3>
                     <p className="text-white/60 text-sm leading-relaxed">{spec.description}</p>
                   </div>
                 </div>

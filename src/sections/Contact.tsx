@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, Phone, ExternalLink } from 'lucide-react';
 import { SectionHeader } from '@/components/SectionHeader';
 import { ContactLink } from '@/components/ContactLink';
-import IMask from 'imask';
+
 import { ruCities } from '@/data/russianCities';
 
-type Mask = ReturnType<typeof IMask>;
+type Mask = Awaited<ReturnType<typeof import('imask')['default']>>;
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -24,10 +24,17 @@ export function Contact() {
 
   useEffect(() => {
     if (phoneRef.current) {
-      maskRef.current = IMask(phoneRef.current, {
-        mask: '+7 (000) 000-00-00',
+      let destroyed = false;
+      import('imask').then(({ default: IMask }) => {
+        if (destroyed || !phoneRef.current) return;
+        maskRef.current = IMask(phoneRef.current, {
+          mask: '+7 (000) 000-00-00',
+        });
       });
-      return () => maskRef.current?.destroy();
+      return () => {
+        destroyed = true;
+        maskRef.current?.destroy();
+      };
     }
   }, []);
 

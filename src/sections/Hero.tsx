@@ -90,6 +90,7 @@ export function Hero() {
               style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
             >
               <picture>
+                <source srcSet="/anna-white-laptop.avif" type="image/avif" />
                 <source srcSet="/anna-white-laptop.webp" type="image/webp" />
                 <img
                   src="/anna-white-laptop.jpg"

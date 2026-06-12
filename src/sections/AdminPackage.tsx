@@ -51,62 +51,66 @@ function StoryGallery() {
   }, [next]);
 
   return (
-    <div id="story-gallery" className="relative w-full max-w-[400px] mx-auto lg:mx-0">
-      {/* Main image */}
-      <div className="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] aspect-[4/5] bg-[#1a1a1a]">
-        {galleryItems.map((item, index) => (
-          <picture key={index}>
-            <source srcSet={webpUrl(item.image)} type="image/webp" />
-            <img
-              src={item.image}
-              alt={item.label}
-              loading="lazy"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                index === current ? 'opacity-100' : 'opacity-0'
-              }`}
-            />
-          </picture>
-        ))}
-
-        {/* Top progress */}
-        <div className="absolute top-0 left-0 right-0 z-10 px-4 pt-4">
-          <div className="flex gap-1.5">
-            {galleryItems.map((_, index) => (
-              <div key={index} className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-white transition-all duration-300"
-                  style={{
-                    width: index <= current ? '100%' : '0%',
-                    opacity: index <= current ? 1 : 0.4,
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Navigation arrows */}
+    <div id="story-gallery" className="w-full max-w-[480px] mx-auto lg:mx-0">
+      <div className="flex items-center gap-2 sm:gap-4">
+        {/* Navigation arrow - left */}
         <button
           type="button"
           onClick={prev}
           aria-label="Назад"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 text-[#172033] flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+          className="flex-shrink-0 w-10 h-10 rounded-full bg-white/90 text-[#172033] flex items-center justify-center shadow-lg hover:bg-white transition-colors"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
+
+        {/* Main image */}
+        <div className="relative flex-1 rounded-3xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] aspect-[4/5] bg-[#1a1a1a]">
+          {galleryItems.map((item, index) => (
+            <picture key={index}>
+              <source srcSet={webpUrl(item.image)} type="image/webp" />
+              <img
+                src={item.image}
+                alt={item.label}
+                loading="lazy"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  index === current ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            </picture>
+          ))}
+
+          {/* Top progress */}
+          <div className="absolute top-0 left-0 right-0 z-10 px-4 pt-4">
+            <div className="flex gap-1.5">
+              {galleryItems.map((_, index) => (
+                <div key={index} className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-white transition-all duration-300"
+                    style={{
+                      width: index <= current ? '100%' : '0%',
+                      opacity: index <= current ? 1 : 0.4,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Counter */}
+          <div className="absolute top-4 right-4 z-10 text-white text-xs font-medium bg-black/30 px-2 py-1 rounded-full">
+            {current + 1}/{total}
+          </div>
+        </div>
+
+        {/* Navigation arrow - right */}
         <button
           type="button"
           onClick={next}
           aria-label="Вперёд"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/90 text-[#172033] flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+          className="flex-shrink-0 w-10 h-10 rounded-full bg-white/90 text-[#172033] flex items-center justify-center shadow-lg hover:bg-white transition-colors"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
-
-        {/* Counter */}
-        <div className="absolute top-4 right-4 z-10 text-white text-xs font-medium bg-black/30 px-2 py-1 rounded-full">
-          {current + 1}/{total}
-        </div>
       </div>
 
       {/* Pagination dots */}
@@ -149,7 +153,7 @@ export function AdminPackage() {
               Готовые сценарии общения с родителями: ответы на вопросы о цене, запись на экскурсию, работа с возражениями и возврат клиента.
             </p>
             <p className="mt-4 text-[#60708c] leading-relaxed">
-              Я собрала пакет всех документов, необходимых для системной и эффективной работы администратора. Каждый из них действует в моём детском саду.
+              Я собрала пакет всех документов, необходимых для системной и эффективной работы администратора. Каждый из них эффективно работает в действующих детских садах.
             </p>
 
             <ul className="mt-8 space-y-3">

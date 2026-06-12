@@ -10,6 +10,7 @@ export function Footer() {
             href="https://t.me/anna_suyazova"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Telegram Анны Суязовой"
             className="hover:text-[#e73c47] transition-colors duration-200"
           >
             Telegram
@@ -19,6 +20,7 @@ export function Footer() {
             href="https://wa.me/79614691333"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="WhatsApp Анны Суязовой"
             className="hover:text-[#e73c47] transition-colors duration-200"
           >
             WhatsApp
@@ -28,6 +30,7 @@ export function Footer() {
             href="https://www.instagram.com/annasuyazova"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram Анны Суязовой"
             className="hover:text-[#e73c47] transition-colors duration-200"
           >
             Instagram

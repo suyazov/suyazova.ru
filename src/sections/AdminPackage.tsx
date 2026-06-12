@@ -58,6 +58,7 @@ function StoryGallery() {
             key={index}
             src={item.image}
             alt={item.label}
+            loading="lazy"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
               index === current ? 'opacity-100' : 'opacity-0'
             }`}

@@ -41,6 +41,9 @@ export function About() {
                   src="/anna-fireplace.jpg"
                   alt="Анна Суязова"
                   className="w-full h-full object-cover"
+                  width="853"
+                  height="1280"
+                  loading="lazy"
                 />
               </div>
             </div>

@@ -61,6 +61,9 @@ export function Team() {
                 src="/anna-red-dress.jpg"
                 alt="Анна Суязова"
                 className="w-full h-auto object-cover"
+                width="852"
+                height="1280"
+                loading="lazy"
               />
 
               {/* Stats overlay */}

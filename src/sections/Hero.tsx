@@ -93,6 +93,8 @@ export function Hero() {
                 src="/anna-white-laptop.jpg"
                 alt="Анна Суязова — консультант по управлению детскими садами"
                 className="w-full h-auto object-cover"
+                width="853"
+                height="1280"
               />
             </div>
           </div>

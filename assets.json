@@ -139,6 +139,27 @@
       "type": "image",
       "description": "Отзыв клиента: вдохновили, появились крылья, клиенты заметили изменения, хочу купить пакет документов.",
       "mimeType": "image/jpeg"
+    },
+    {
+      "id": "partner-logo-amocrm",
+      "file": "/partner-logos/amocrm.png",
+      "type": "image",
+      "description": "Логотип amoCRM — инструмент для работы с заявками и клиентской базой.",
+      "mimeType": "image/png"
+    },
+    {
+      "id": "partner-logo-paraplan",
+      "file": "/partner-logos/paraplan.png",
+      "type": "image",
+      "description": "Логотип Paraplan CRM — CRM для детских садов и центров.",
+      "mimeType": "image/png"
+    },
+    {
+      "id": "partner-logo-finolog",
+      "file": "/partner-logos/finolog.png",
+      "type": "image",
+      "description": "Логотип Finolog — сервис управленческого учёта для бизнеса.",
+      "mimeType": "image/png"
     }
   ]
 }

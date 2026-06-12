@@ -86,16 +86,21 @@ export function Hero() {
               style={{ background: 'rgba(231, 60, 71, 0.08)', animationDelay: '0s' }}
             />
             <div
-              className="relative rounded-[20px] overflow-hidden opacity-0 animate-scale-in"
+              className="relative rounded-[20px] overflow-hidden opacity-0 animate-scale-in aspect-[853/1280]"
               style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
             >
-              <img
-                src="/anna-white-laptop.jpg"
-                alt="Анна Суязова — консультант по управлению детскими садами"
-                className="w-full h-auto object-cover"
-                width="853"
-                height="1280"
-              />
+              <picture>
+                <source srcSet="/anna-white-laptop.webp" type="image/webp" />
+                <img
+                  src="/anna-white-laptop.jpg"
+                  alt="Анна Суязова — консультант по управлению детскими садами"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  width="853"
+                  height="1280"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </picture>
             </div>
           </div>
         </div>

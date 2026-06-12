@@ -1,6 +1,6 @@
 import { SectionHeader } from '@/components/SectionHeader';
 import { AwardBadge } from '@/components/AwardBadge';
-import { Award, Building2, Users, Calendar } from 'lucide-react';
+import { Award, Calendar, Users, MessageSquare } from 'lucide-react';
 
 const awards = [
   { title: 'Лучший молодой предприниматель', year: '2016' },
@@ -11,9 +11,9 @@ const awards = [
 
 const stats = [
   { icon: Calendar, value: '10+', label: 'лет в дошкольном образовании' },
-  { icon: Building2, value: '5+', label: 'действующих детских садов' },
+  { icon: Users, value: '8', label: 'человек в команде' },
   { icon: Award, value: '3×', label: 'обладатель премии Золотой Меркурий' },
-  { icon: Users, value: '500+', label: 'владельцев бизнеса проконсультировано' },
+  { icon: MessageSquare, value: '100+', label: 'проведённых консультаций' },
 ];
 
 export function About() {
@@ -34,10 +34,10 @@ export function About() {
             <div className="relative">
               {/* Decorative shape behind */}
               <div
-                className="absolute -left-5 -bottom-5 w-full h-full rounded-[24px] pointer-events-none"
+                className="absolute -left-6 -bottom-6 w-full h-full rounded-[28px] pointer-events-none"
                 style={{ background: 'rgba(231, 60, 71, 0.07)' }}
               />
-              <div className="relative w-[280px] h-[360px] md:w-[320px] md:h-[420px] rounded-[24px] overflow-hidden shadow-card">
+              <div className="relative w-[320px] h-[420px] md:w-[400px] md:h-[520px] rounded-[28px] overflow-hidden shadow-card">
                 <img
                   src="/anna-fireplace.jpg"
                   alt="Анна Суязова"

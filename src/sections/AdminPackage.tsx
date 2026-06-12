@@ -18,12 +18,6 @@ const features = [
   'Возврат «замороженного» клиента',
 ];
 
-const partners = [
-  { name: 'amoCRM', logo: '/partner-logos/amocrm.png' },
-  { name: 'Paraplan', logo: '/partner-logos/paraplan.png' },
-  { name: 'Finolog', logo: '/partner-logos/finolog.png' },
-];
-
 function PhoneStory() {
   const [current, setCurrent] = useState(0);
   const total = galleryItems.length;
@@ -56,11 +50,11 @@ function PhoneStory() {
   }, [next]);
 
   return (
-    <div id="phone-story" className="relative w-full max-w-[320px] mx-auto">
+    <div id="phone-story" className="relative w-full max-w-[420px] mx-auto lg:mx-0">
       {/* Phone frame */}
-      <div className="bg-[#1a1a1a] rounded-[42px] p-3 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.35)]">
+      <div className="bg-[#1a1a1a] rounded-[44px] p-3 shadow-[0_30px_70px_-12px_rgba(0,0,0,0.35)]">
         {/* Screen */}
-        <div className="relative bg-black rounded-[32px] overflow-hidden aspect-[9/18.5]">
+        <div className="relative bg-black rounded-[34px] overflow-hidden aspect-[9/18.5]">
           {/* Story image */}
           <img
             src={galleryItems[current].image}
@@ -162,29 +156,16 @@ function PhoneStory() {
 
 export function AdminPackage() {
   return (
-    <section id="admin-package" className="bg-[#fffaf7] py-[clamp(60px,8vw,120px)] relative overflow-hidden">
-      {/* Partner logos */}
-      <div className="absolute top-6 right-5 lg:top-10 lg:right-10 z-10">
-        <p className="text-[10px] lg:text-xs font-medium text-[#60708c] uppercase tracking-wider mb-2 text-right">
-          Работаю с инструментами
-        </p>
-        <div className="flex items-center justify-end gap-3 bg-white/80 backdrop-blur-sm rounded-2xl px-4 py-2.5 border border-[#e8e0d8] shadow-sm">
-          {partners.map((partner) => (
-            <img
-              key={partner.name}
-              src={partner.logo}
-              alt={partner.name}
-              className="h-6 lg:h-7 w-auto object-contain"
-              title={partner.name}
-            />
-          ))}
-        </div>
-      </div>
-
+    <section id="admin-package" className="bg-[#fffaf7] py-[clamp(60px,8vw,120px)] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left column — text */}
-          <div className="scroll-reveal order-2 lg:order-1">
+          {/* Left column — phone */}
+          <div className="scroll-reveal-scale flex justify-center lg:justify-start">
+            <PhoneStory />
+          </div>
+
+          {/* Right column — text */}
+          <div className="scroll-reveal">
             <span className="text-xs font-semibold tracking-[0.08em] uppercase text-[#e73c47]">
               СИСТЕМА ПРОДАЖ
             </span>
@@ -220,11 +201,6 @@ export function AdminPackage() {
                 Написать для покупки пакета
               </a>
             </div>
-          </div>
-
-          {/* Right column — phone */}
-          <div className="order-1 lg:order-2 scroll-reveal-scale">
-            <PhoneStory />
           </div>
         </div>
       </div>

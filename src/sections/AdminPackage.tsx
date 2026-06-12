@@ -50,9 +50,9 @@ function StoryGallery() {
   }, [next]);
 
   return (
-    <div id="story-gallery" className="relative w-full max-w-[520px] mx-auto lg:mx-0">
+    <div id="story-gallery" className="relative w-full max-w-[400px] mx-auto lg:mx-0">
       {/* Main image */}
-      <div className="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] aspect-[9/16] bg-[#1a1a1a]">
+      <div className="relative rounded-3xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] aspect-[4/5] bg-[#1a1a1a]">
         {galleryItems.map((item, index) => (
           <img
             key={index}

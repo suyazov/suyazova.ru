@@ -44,7 +44,7 @@ export function Navigation() {
             }}
             className="flex items-center gap-2 text-base font-bold text-[#172033] hover:text-[#e73c47] transition-colors duration-200"
           >
-            <img src="/logo.png" alt="Анна Суязова" className="w-8 h-8 rounded-full object-cover" />
+            <img src="/logo.png" alt="Анна Суязова" className="w-8 h-8 object-contain" />
             <span>Анна Суязова</span>
           </a>
 

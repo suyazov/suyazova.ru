@@ -1,5 +1,4 @@
 import { SectionHeader } from '@/components/SectionHeader';
-import { AwardBadge } from '@/components/AwardBadge';
 import { Award, Calendar, Users, MessageSquare } from 'lucide-react';
 
 const awards = [
@@ -37,7 +36,7 @@ export function About() {
                 className="absolute -left-6 -bottom-6 w-full h-full rounded-[28px] pointer-events-none"
                 style={{ background: 'rgba(231, 60, 71, 0.07)' }}
               />
-              <div className="relative w-[320px] h-[420px] md:w-[400px] md:h-[520px] rounded-[28px] overflow-hidden shadow-card">
+              <div className="relative w-[340px] h-[510px] md:w-[420px] md:h-[630px] lg:w-[480px] lg:h-[720px] rounded-[28px] overflow-hidden shadow-card">
                 <img
                   src="/anna-fireplace.jpg"
                   alt="Анна Суязова"
@@ -77,10 +76,17 @@ export function About() {
             </div>
 
             {/* Awards */}
-            <div className="flex flex-wrap gap-3 stagger-children">
+            <div className="grid grid-cols-2 gap-4">
               {awards.map((award, index) => (
-                <div key={index} className="scroll-reveal">
-                  <AwardBadge title={award.title} year={award.year} />
+                <div
+                  key={index}
+                  className="scroll-reveal flex items-center gap-3 bg-[#fef2f2] rounded-xl px-5 py-4 h-full"
+                >
+                  <Award className="w-5 h-5 text-[#e73c47] flex-shrink-0" />
+                  <div>
+                    <p className="text-sm font-medium text-[#172033]">{award.title}</p>
+                    <p className="text-xs text-[#60708c]">{award.year}</p>
+                  </div>
                 </div>
               ))}
             </div>

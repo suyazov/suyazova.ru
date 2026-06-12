@@ -59,7 +59,7 @@ export function Team() {
             <div className="relative rounded-2xl overflow-hidden">
               <img
                 src="/anna-red-dress.jpg"
-                alt="Анна Суязова — пожарная безопасность в детском саду"
+                alt="Анна Суязова"
                 className="w-full h-auto object-cover"
               />
 

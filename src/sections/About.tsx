@@ -27,16 +27,16 @@ export function About() {
           />
         </div>
 
-        <div className="mt-14 lg:mt-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="mt-14 lg:mt-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
           {/* Photo */}
-          <div className="scroll-reveal-scale flex justify-center lg:justify-start">
-            <div className="relative">
+          <div className="scroll-reveal-scale flex justify-center lg:justify-start h-auto lg:h-full">
+            <div className="relative w-[340px] h-[510px] md:w-[420px] md:h-[630px] lg:w-[480px] lg:h-full">
               {/* Decorative shape behind */}
               <div
                 className="absolute -left-6 -bottom-6 w-full h-full rounded-[28px] pointer-events-none"
                 style={{ background: 'rgba(231, 60, 71, 0.07)' }}
               />
-              <div className="relative w-[340px] h-[510px] md:w-[420px] md:h-[630px] lg:w-[480px] lg:h-[720px] rounded-[28px] overflow-hidden shadow-card">
+              <div className="relative w-full h-full rounded-[28px] overflow-hidden shadow-card">
                 <img
                   src="/anna-fireplace.jpg"
                   alt="Анна Суязова"

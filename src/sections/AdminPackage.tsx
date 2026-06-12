@@ -50,11 +50,11 @@ function PhoneStory() {
   }, [next]);
 
   return (
-    <div id="phone-story" className="relative w-full max-w-[420px] mx-auto lg:mx-0">
+    <div id="phone-story" className="relative w-full max-w-[340px] mx-auto lg:mx-0">
       {/* Phone frame */}
-      <div className="bg-[#1a1a1a] rounded-[44px] p-3 shadow-[0_30px_70px_-12px_rgba(0,0,0,0.35)]">
+      <div className="bg-[#1a1a1a] rounded-[36px] p-2 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.35)]">
         {/* Screen */}
-        <div className="relative bg-black rounded-[34px] overflow-hidden aspect-[9/18.5]">
+        <div className="relative bg-black rounded-[28px] overflow-hidden aspect-[9/18]">
           {/* Story image */}
           <img
             src={galleryItems[current].image}
@@ -67,7 +67,7 @@ function PhoneStory() {
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 
           {/* Top bar */}
-          <div className="absolute top-0 left-0 right-0 z-20 px-4 pt-4 pb-2">
+          <div className="absolute top-0 left-0 right-0 z-20 px-3 pt-3 pb-2">
             {/* Progress segments */}
             <div className="flex gap-1 mb-3">
               {galleryItems.map((_, index) => (
@@ -91,7 +91,7 @@ function PhoneStory() {
             {/* User info */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-9 h-9 rounded-full overflow-hidden border border-white/30 bg-[#e73c47]">
+                <div className="w-8 h-8 rounded-full overflow-hidden border border-white/30 bg-[#e73c47]">
                   <img src="/anna-fireplace.jpg" alt="Анна" className="w-full h-full object-cover" />
                 </div>
                 <div>
@@ -122,12 +122,12 @@ function PhoneStory() {
           </button>
 
           {/* Bottom send button */}
-          <div className="absolute bottom-0 left-0 right-0 z-20 px-4 pb-5">
+          <div className="absolute bottom-0 left-0 right-0 z-20 px-3 pb-4">
             <a
               href="https://t.me/anna_suyazova"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm font-semibold py-3 rounded-full border border-white/30 transition-colors"
+              className="flex items-center justify-center gap-2 w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm font-semibold py-2.5 rounded-full border border-white/30 transition-colors"
             >
               <Send className="w-4 h-4" />
               Отправить сообщение

@@ -6,6 +6,7 @@ import { ContactLink } from '@/components/ContactLink';
 import { ruCities } from '@/data/russianCities';
 
 type Mask = Awaited<ReturnType<typeof import('imask')['default']>>;
+const contactFormEnabled = import.meta.env.VITE_CONTACT_FORM_ENABLED === 'true';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -181,6 +182,7 @@ export function Contact() {
           </div>
 
           <div className="flex-1 scroll-reveal-right">
+            {contactFormEnabled ? (
             <form onSubmit={handleSubmit} className="p-8 md:p-10 rounded-2xl border border-white/10" style={{ background: 'rgba(255, 255, 255, 0.05)' }}>
               <div className="space-y-4">
                 <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
@@ -260,6 +262,11 @@ export function Contact() {
               </div>
               <p className="mt-4 text-xs text-white/40 text-center">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
             </form>
+            ) : (
+              <p className="p-8 md:p-10 rounded-2xl border border-white/10 text-white">
+                Для консультации напишите в <a className="underline" href="https://t.me/anna_suyazova">Telegram</a>.
+              </p>
+            )}
           </div>
         </div>
       </div>

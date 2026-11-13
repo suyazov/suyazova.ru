@@ -56,17 +56,17 @@ export function Contact() {
           city: formData.city,
           interest: formData.interest,
           message: formData.message,
-          website: '',
+          website: String(new FormData(e.currentTarget).get('website') ?? ''),
         }).toString(),
       });
 
       const result = await response.text();
 
-      if (result === 'success') {
+      if (response.ok && result === 'success') {
         setIsSubmitted(true);
         setFormData({ name: '', phone: '', city: '', interest: '', message: '' });
         if (maskRef.current) maskRef.current.value = '+7 (___) ___-__-__';
-      } else if (result === 'rate_limited') {
+      } else if (response.status === 429 || result === 'rate_limited') {
         alert('Слишком много запросов. Попробуйте позже.');
       } else {
         alert('Ошибка отправки. Попробуйте ещё раз.');
